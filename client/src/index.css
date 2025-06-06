@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 142 76% 36%; /* WhatsApp Green #25D366 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* WhatsApp colors */
+  --whatsapp: 142 76% 36%; /* #25D366 */
+  --whatsapp-dark: 165 89% 17%; /* #075E54 */
+  --whatsapp-light: 142 70% 49%; /* #25D366 with more brightness */
+  --whatsapp-medium: 165 85% 25%; /* #128C7E */
+  --whatsapp-background: 165 89% 97%; /* Light background */
+
+  /* Status colors */
+  --success: 142 76% 36%;
+  --error: 0 84% 60%;
+  --warning: 38 92% 50%;
+  --info: 221 83% 53%;
+  
+  /* Layout variables */
+  --sidebar-width: 16rem;
+  --header-height: 4rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  
+  /* WhatsApp dark mode adjustments */
+  --whatsapp-dark: 165 89% 22%;
+  --whatsapp-background: 240 10% 5%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-primary/50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@layer utilities {
+  /* WhatsApp colors */
+  .text-whatsapp {
+    color: hsl(var(--whatsapp));
+  }
+  
+  .text-whatsapp-dark {
+    color: hsl(var(--whatsapp-dark));
+  }
+  
+  .text-whatsapp-medium {
+    color: hsl(var(--whatsapp-medium));
+  }
+  
+  .bg-whatsapp {
+    background-color: hsl(var(--whatsapp));
+  }
+  
+  .bg-whatsapp-dark {
+    background-color: hsl(var(--whatsapp-dark));
+  }
+  
+  .bg-whatsapp-medium {
+    background-color: hsl(var(--whatsapp-medium));
+  }
+  
+  .border-whatsapp {
+    border-color: hsl(var(--whatsapp));
+  }
+  
+  .hover\:bg-whatsapp-dark:hover {
+    background-color: hsl(var(--whatsapp-dark));
+  }
+  
+  .hover\:text-whatsapp-dark:hover {
+    color: hsl(var(--whatsapp-dark));
+  }
+  
+  .focus\:ring-whatsapp:focus {
+    --tw-ring-color: hsl(var(--whatsapp));
+  }
+  
+  /* Status colors */
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+  
+  .text-error {
+    color: hsl(var(--error));
+  }
+  
+  /* Layout */
+  .min-h-screen-without-header {
+    min-height: calc(100vh - var(--header-height));
+  }
+  
+  /* Typography */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
