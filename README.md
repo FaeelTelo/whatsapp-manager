@@ -1,4 +1,4 @@
-# WhatsApp Business API Manager
+# WhatsApp Business API Manager (EM DESENVOLVIMENTO)
 
 Uma aplicação web completa para gerenciar e enviar mensagens através da WhatsApp Business API oficial da Meta.
 
