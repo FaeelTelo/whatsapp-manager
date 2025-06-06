@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="WhatsApp Business API Messenger - Gerenciamento de mensagens">
+    <meta name="theme-color" content="#25D366">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:5000; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:5000; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://localhost:5000; font-src 'self' data:; connect-src 'self' ws://localhost:5000 http://localhost:5000; worker-src 'self' blob:">
+    <title>WhatsApp Messenger</title>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator && import.meta.env.PROD) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>
